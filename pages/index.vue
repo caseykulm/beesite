@@ -9,6 +9,8 @@
             rounded 
             maxlength="7" 
             type="text" 
+            v-on:input="boardModified" 
+            v-model="board" 
             validation-message="Must be 7 unique lower case letters" 
             pattern="(?:([a-z])(?!.*\1))*" >
           </b-input>
@@ -20,8 +22,9 @@
             rounded 
             maxlength="1" 
             type="text" 
+            v-model="centerChar" 
             validation-message="Must be one of the 7 unique letters" 
-            pattern="[a-z]">
+            v-bind:pattern="centerCharPattern">
           </b-input>
         </b-field>
         <div class="columns is-mobile">
@@ -45,6 +48,20 @@ export default {
 
   components: {
     Card
+  },
+
+  data() {
+    return {
+      board: '',
+      centerChar: '',
+      centerCharPattern: '[]'
+    }
+  },
+
+  methods: {
+    boardModified() {
+      this.centerCharPattern = `[${this.board}]`;
+    }
   }
 }
 </script>

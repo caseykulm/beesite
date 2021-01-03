@@ -15,6 +15,7 @@
             alt="Bee Icon"
             height="28"
           >
+          &nbsp;<strong>Casey's Spelling Bee Solver</strong>
         </a> 
       </div>
     </nav>
